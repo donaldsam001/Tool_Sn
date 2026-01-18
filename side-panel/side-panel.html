@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Task Study</title>
+    <link rel="stylesheet" href="side-panel.css">
+</head>
+<body>
+    <div id="side-panel">
+        <h1>Ai2 Web Tool</h1>
+        <div id="instructions-and-answers">
+            <details open class="sticky-section">
+                <summary>Latest Screenshot</summary>
+                <div id="latest-screenshot-container">
+                    <img id="latest-screenshot" style="max-width: 100%; height: auto; display: none;" alt="Latest screenshot">
+                    <p id="no-screenshot-message">No screenshot captured yet.</p>
+                    <br>
+                    <!-- <div class="action-form">
+                        <button id="screenshot-button" class="button blue" type="button">
+                            Take Screenshot
+                        </button>
+                    </div> -->
+                    <div id="screenshot-loading-spinner" class="loading-spinner" style="display: none;">
+                        <div class="spinner"></div>
+                        <p>Capturing screenshot...</p>
+                    </div>
+                </div>
+            </details>
+
+            <!-- <details open>
+                <summary>Take Screenshot
+                    <span class="tooltip">?
+                        <span class="tooltiptext">
+                            Click this button to capture a screenshot of the current page with a note of "screenshot" and timestamp.
+                        </span>
+                    </span>
+                </summary>
+
+                <div class="action-form">
+                    <button id="screenshot-button" class="button blue" type="button">
+                        Take Screenshot
+                    </button>
+                </div>
+            </details> -->
+
+            <br>
+
+            <details open>
+                <summary>Instructions</summary>
+                <p>
+                    <p id="dynamic-instruction">Loading task instruction...</p>
+                    <div id="dynamic-task-steps">Loading task steps...</div>
+                    <!-- <p id="dynamic-website">Loading website...</p> -->
+                </p>
+            </details>
+
+            <!-- <details open>
+                <summary>Q & A
+                    <span class="tooltip">?
+                        <span class="tooltiptext">
+                            <br><br>
+                            Example 1:<br>
+                            Task: Book a flight to Seattle.<br>
+                            Q: Where will it fly out from?<br>
+                            A: I am going to choose a flight from Chicago to Seattle.<br><br>
+                            Example 2:<br>
+                            Task: Find a burrito recipe on bestburritorecipes.com.<br>
+                            Q: bestburritorecipes.com doesn't exist, what website should I use?<br>
+                            A: I am going to find a recipe on recipetineats.com.
+                        </span>
+                    </span>
+                </summary>
+                <form id="question-answer-form" class="action-form">
+                    <p>If there is confusion about the task instruction or the task is problematic in some way, ask a question for clarification and self-answer the question so that you can continue the task.</p>
+                    <label>
+                        Question
+                        <textarea name="question" class="textarea" required placeholder="Request clarification..."></textarea>
+                    </label>
+                    <label>
+                        Answer
+                        <textarea name="answer" class="textarea" required placeholder="Self-answer..."></textarea>
+                    </label>
+                    <button class="button green" type="submit">
+                        Send
+                    </button>
+                </form>
+            </details> -->
+
+            <!-- Make a Note section will be dynamically injected below a step when '?' is clicked -->
+
+
+
+            <!-- Finish Session section will be dynamically inserted after step tracker when all steps are complete -->
+        </div>
+        <div id="session-finished-instructions" data-hidden="true">
+            <p>Thank you for recording your session. Please go to <a id="redirect-location"></a> to ensure your contribution has been recorded. You can return to the starting page in your other window if you want to view the events we recorded.</p>
+        </div>
+
+        <div id="upload-failed-instructions" data-hidden="true">
+            Something went wrong when uploading your session. Please try again.
+            <button id="retry-upload-button">Retry upload</button>
+            More details:
+            <div id="upload-failed-details"></div>
+        </div>
+
+        <details open>
+            <summary>Previous Messages</summary>
+            <ol id="user-messages-list"></ol>
+        </details>
+
+    </div>
+    <script src="./side-panel.js"></script>
+</body>
+</html>
